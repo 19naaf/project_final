@@ -1,8 +1,33 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+import SignUp from '../components/SignUp.vue'
+import SignIn from '../components/SignIn.vue'
+
+const hasUser = ref(true);
+
+function toggleUser(){
+    hasUser.value = !hasUser.value;
+}
+
+</script>
 
 <template>
-    <h1>Componente Authentication</h1>
-    aqui va el formulario, y el formulario debe llamar a la funcion en user signup
+<section>
+    <article v-if="!hasUser">
+        <SignUp ></SignUp>
+        <button @click="toggleUser">Ya tengo cuenta</button>
+    </article>
+    <article v-if="hasUser">
+        <SignIn ></SignIn>
+        <button @click="toggleUser">No tengo cuenta</button>
+    </article> 
+</section> 
 </template>
 
-<style scoped></style>
+<style scoped>
+button{
+    display: block;
+    margin: 0 auto;
+    margin-top: 0px;
+}
+</style>
