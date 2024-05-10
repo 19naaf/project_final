@@ -3,9 +3,11 @@ import { onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useUserStore } from './stores/user.js'
+import { useTaskStore } from './stores/task.js'
  
 const router = useRouter()
 const userStore = useUserStore()
+const taskStore = useTaskStore();
 const { user } = storeToRefs(userStore)
  
 onMounted(async () => {
@@ -16,6 +18,7 @@ onMounted(async () => {
       router.push({ path: '/auth' });
     } else {
       // continue to dashboard
+      taskStore.fetchTasks();
       router.push({ path: '/' });
     }
   } catch (e) {

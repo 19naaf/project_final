@@ -1,40 +1,39 @@
 <script setup>
-import {useUserStore} from '../stores/user.js'
 import { useTaskStore } from '../stores/task.js'
-import { useRouter } from 'vue-router'
-import { storeToRefs } from 'pinia'
-import AddTask from '../components/AddTask.vue'
-import TaskCard from '../components/TaskCard.vue'
+import { ref } from 'vue'
 
 
-const router = useRouter();
-const userStore = useUserStore();
 const taskStore = useTaskStore();
-const {tasks} = storeToRefs(taskStore);
+const title = ref('');
+const description = ref('');
 
-function signOut(){
-    userStore.signOut()
-    router.push({ path: '/auth' });
+async function addTask(){
+    await taskStore.addTask(title.value, description.value)
+    title.value = ''
+    description.value = ''
+    await taskStore.fetchTasks();
 }
 
 </script>
 
 <template>
-    <section>
-    <h1>Componente Dashboard</h1>
-    <button @click="signOut">Desconectar</button>
-   <AddTask></AddTask>
-    <div v-if="!tasks">
-        <p>no hay tareas almacenadas</p>
-    </div>
-    <div>
-        <ul>
-            <li class="card" v-for="task in tasks" :key="task.id">
-                <TaskCard :task="task"></TaskCard>
-            </li>
-        </ul>
-    </div>
-</section>
+    <form @submit.prevent="addTask">
+        <h2>Registrar Tarea</h2>
+        <fieldset>
+            <legend>INFORMACION BASICA</legend>
+        <div class="form_input">
+            <label for="nombre">Titulo : </label>
+            <input v-model="title" type="text" placeholder="titulo de su tarea aqui..." id="title">
+        </div>
+            <div class="form_input">
+                <label for="texto">Descripcion: </label>
+            <textarea v-model="description" placeholder="Descripcion..." id="texto"></textarea>
+            </div>
+            <div>
+            <button type="submit">Registrar</button>
+            </div>
+        </fieldset>
+    </form>
 </template>
 
 <style scoped>
@@ -100,8 +99,5 @@ button{
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 20px;
-}
-.card{
-    border: solid 1px #666;
 }
 </style>
