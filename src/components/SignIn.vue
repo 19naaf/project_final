@@ -20,12 +20,16 @@ function signIn(email,password){
 </script>
 
 <template>
+<div class="block1">
+    <img class="image_app" src="../assets/images/check_list.png" alt="check_list">
+    <h2>Welcome to Task</h2>
+</div>
 <form @submit.prevent="signIn(email,password)">
-    <h2>Iniciar Sesion</h2>
+    <h2>Sign In</h2>  
     <fieldset>
-        <legend>INFORMACION BASICA</legend>
+        <legend>Basic Information</legend>
     <div class="form_input">
-        <label for="nombre">Correo Electronico</label>
+        <label for="nombre">Email </label>
         <input v-model="email" type="email" placeholder="email@example.com" id="emailSignIn">
     </div>
         <div class="form_input">
@@ -33,7 +37,7 @@ function signIn(email,password){
             <input v-model="password" type="password" placeholder="password" id="passwordSignIn">
         </div>
         <div>
-            <button type="submit">Entrar</button>
+            <button type="submit">Sign In</button>
         </div>
     </fieldset>
 </form>
@@ -41,6 +45,22 @@ function signIn(email,password){
 
 
 <style scoped>
+.block1{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.image_app{
+    width: 150px;
+    height: 200px;
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 30px;
+    
+}
 h2{
     text-align: center;
     margin: 0;
@@ -57,7 +77,7 @@ form{
     max-width: 450px;
     margin: auto;
     box-shadow: 0 0 55px #fff2 ;
-    margin-top: 100px;
+    margin-top: 0px;
     border-radius: 8px;
     font-size: 16px;
     margin-bottom: 20px;

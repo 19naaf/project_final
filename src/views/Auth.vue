@@ -15,11 +15,11 @@ function toggleUser(){
 <section>
     <article v-if="!hasUser">
         <SignUp ></SignUp>
-        <button @click="toggleUser">Ya tengo cuenta</button>
+        <button @click="toggleUser">I have an account</button>
     </article>
     <article v-if="hasUser">
         <SignIn ></SignIn>
-        <button @click="toggleUser">No tengo cuenta</button>
+        <button @click="toggleUser">Create an account</button>
     </article> 
 </section> 
 </template>

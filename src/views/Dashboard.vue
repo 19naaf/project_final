@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import AddTask from '../components/AddTask.vue'
 import TaskCard from '../components/TaskCard.vue'
+import NavBar from '../components/NavBar.vue'
 
 
 const router = useRouter();
@@ -20,9 +21,9 @@ function signOut(){
 </script>
 
 <template>
+    <NavBar></NavBar>
     <section>
-    <h1>Componente Dashboard</h1>
-    <button @click="signOut">Desconectar</button>
+    <button @click="signOut">Sign Out</button>
    <AddTask></AddTask>
     <div v-if="!tasks">
         <p>no hay tareas almacenadas</p>

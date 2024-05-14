@@ -32,17 +32,17 @@ async function noTask (){
 </script>
 
 <template>
-    <h3>Titulo: 
+    <h3>Title: 
         <span @dblclick="()=> isEditableTitle=true" v-if="!isEditableTitle">{{ task.title }}</span>
         <input @dblclick="()=> isEditableTitle=false" v-if="isEditableTitle" type="text" v-model="innerTask.title">
     </h3>
-    <p>Descripcion: 
+    <p>Description: 
         <span @dblclick="()=> isEditableDescription=true" v-if="!isEditableDescription">{{ task.description }}</span>
         <input @dblclick="()=> isEditableDescription=false" v-if="isEditableDescription" type="text" v-model="innerTask.description">
     </p>
-    <p>Tarea completada? 
+    <p>Task Completed? 
         
-        <button @click="updateAndFetch(innerTask.is_complete=true)">Si</button>
+        <button @click="updateAndFetch(innerTask.is_complete=true)">Yes</button>
         
         <button @click="updateAndFetch(innerTask.is_complete=false)">No</button>
 
@@ -50,10 +50,35 @@ async function noTask (){
         {{ props.task.is_complete }}</p>
 
 
-    <button @click="taskStore.deleteTask(task.id)"> Eliminar</button>
-    <button @click="updateAndFetch"> Modificar</button>
+    <button @click="taskStore.deleteTask(task.id)"> Delete Task</button>
+    <button class="modify" @click="updateAndFetch"> Apply Change</button>
     </template>
 
 
 <style scoped>
+button{
+    margin: 0 10px;
+    margin-bottom: 10px;
+}
+.modify {
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+}
+.modify::after {
+    content: ' First double click on title or description !!'; /* Texto de la leyenda */
+    position: absolute;
+    bottom: 0%; /* Posiciona el tooltip arriba del botón */
+    left: 240%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+.modify:hover::after {
+    opacity: 1;
+}
 </style>

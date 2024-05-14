@@ -18,19 +18,19 @@ async function addTask(){
 
 <template>
     <form @submit.prevent="addTask">
-        <h2>Registrar Tarea</h2>
+        <h2>Add Task</h2>
         <fieldset>
-            <legend>INFORMACION BASICA</legend>
+            <legend>Basic Information</legend>
         <div class="form_input">
-            <label for="nombre">Titulo : </label>
-            <input v-model="title" type="text" placeholder="titulo de su tarea aqui..." id="title">
+            <label for="nombre">Title : </label>
+            <input v-model="title" type="text" placeholder="Title task here..." id="title">
         </div>
             <div class="form_input">
-                <label for="texto">Descripcion: </label>
-            <textarea v-model="description" placeholder="Descripcion..." id="texto"></textarea>
+                <label for="texto">Description : </label>
+            <textarea v-model="description" placeholder="Description..." id="texto"></textarea>
             </div>
             <div>
-            <button type="submit">Registrar</button>
+            <button type="submit">Add</button>
             </div>
         </fieldset>
     </form>

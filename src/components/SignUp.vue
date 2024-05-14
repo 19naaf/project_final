@@ -27,12 +27,16 @@ function signUp(){
 </script>
 
 <template>
+    <div class="block1">
+    <img class="image_app" src="../assets/images/check_list.png" alt="check_list">
+    <h2>Welcome to Task</h2>
+</div>
 <form @submit.prevent="signUp">
         <h2>Registrarse</h2>
         <fieldset>
-            <legend>INFORMACION BASICA</legend>
+            <legend>Basic Information</legend>
         <div class="form_input">
-            <label for="nombre">Correo Electronico</label>
+            <label for="nombre">Email</label>
             <input v-model="email" type="email" placeholder="email@example.com" id="email">
         </div>
             <div class="form_input">
@@ -44,7 +48,7 @@ function signUp(){
                 <input v-model="confirm_password" type="password" placeholder="password" id="confirm_password">
             </div>
             <div>
-                <button type="submit">Registrarse</button>
+                <button type="submit">Sign Up</button>
             </div>
         </fieldset>
     </form>
@@ -52,6 +56,22 @@ function signUp(){
 
 
 <style scoped>
+.block1{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.image_app{
+    width: 150px;
+    height: 200px;
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 30px;
+    
+}
 h2{
     text-align: center;
     margin: 0;
@@ -68,7 +88,7 @@ form{
     max-width: 450px;
     margin: auto;
     box-shadow: 0 0 55px #fff2 ;
-    margin-top: 100px;
+    margin-top: 0px;
     border-radius: 8px;
     font-size: 16px;
     margin-bottom: 20px;
