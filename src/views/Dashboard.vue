@@ -13,27 +13,25 @@ const userStore = useUserStore();
 const taskStore = useTaskStore();
 const {tasks} = storeToRefs(taskStore);
 
-function signOut(){
-    userStore.signOut()
-    router.push({ path: '/auth' });
-}
+// function signOut(){
+//     userStore.signOut()
+//     router.push({ path: '/auth' });
+// }
 
 </script>
 
 <template>
     <NavBar></NavBar>
     <section>
-    <button @click="signOut">Sign Out</button>
+    <!-- <button @click="signOut">Sign Out</button> -->
    <AddTask></AddTask>
     <div v-if="!tasks">
-        <p>no hay tareas almacenadas</p>
+        <p>No tasks availables</p>
     </div>
-    <div>
-        <ul>
-            <li class="card" v-for="task in tasks" :key="task.id">
+    <div class="task-target">
+            <div class="card" v-for="task in tasks" :key="task.id">
                 <TaskCard :task="task"></TaskCard>
-            </li>
-        </ul>
+            </div>
     </div>
 </section>
 </template>
@@ -73,7 +71,6 @@ input, textarea{
     background-color: transparent;
     border-radius: 4px;
     color: #eee;
-    /* resize: none; para evitar que cambien de tamaño y escribir lo de abajo */
 }
 textarea{
     min-width: 100%;
@@ -103,6 +100,17 @@ button{
     margin-left: 20px;
 }
 .card{
-    border: solid 1px #666;
+    
+    box-shadow: 0 0 40px #fff2 ;
+    margin: 1px;
+    padding: 15px;
+    
+}
+.task-target { 
+margin: 50px;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+gap: 20px;
 }
 </style>

@@ -19,35 +19,40 @@ async function updateAndFetch(){
     isEditableTitle.value = false;
     isEditableDescription.value = false;
 }
-async function doneTask (){
-    await taskStore.updateTask(props.task.id, innerTask.value.title, innerTask.value.description, innerTask.value.is_complete)
-    await taskStore.fetchTasks();
-    innerTask.value.is_complete = true;
-}
-async function noTask (){
-    await taskStore.updateTask(props.task.id, innerTask.value.title, innerTask.value.description, innerTask.value.is_complete)
-    await taskStore.fetchTasks();
-    innerTask.value.is_complete = false;
-}
+// async function doneTask (){
+//     await taskStore.updateTask(props.task.id, innerTask.value.title, innerTask.value.description, innerTask.value.is_complete)
+//     await taskStore.fetchTasks();
+//     innerTask.value.is_complete = true;
+// }
+// async function noTask (){
+//     await taskStore.updateTask(props.task.id, innerTask.value.title, innerTask.value.description, innerTask.value.is_complete)
+//     await taskStore.fetchTasks();
+//     innerTask.value.is_complete = false;
+// }
 </script>
 
 <template>
-    <h3>Title: 
+    <h3 :class="{ underlined: props.task.is_complete }">Title: 
         <span @dblclick="()=> isEditableTitle=true" v-if="!isEditableTitle">{{ task.title }}</span>
         <input @dblclick="()=> isEditableTitle=false" v-if="isEditableTitle" type="text" v-model="innerTask.title">
     </h3>
-    <p>Description: 
+    <p :class="{ underlined: props.task.is_complete }">Description: 
         <span @dblclick="()=> isEditableDescription=true" v-if="!isEditableDescription">{{ task.description }}</span>
         <input @dblclick="()=> isEditableDescription=false" v-if="isEditableDescription" type="text" v-model="innerTask.description">
     </p>
-    <p>Task Completed? 
+    <p>Task Completed ? 
         
-        <button @click="updateAndFetch(innerTask.is_complete=true)">Yes</button>
         
-        <button @click="updateAndFetch(innerTask.is_complete=false)">No</button>
+
+        <img class="icon_check" src="../assets/images/check.png" @click="updateAndFetch(innerTask.is_complete=true)">
+        
+        <img class="icon_check2" src="../assets/images/check_x.png" @click="updateAndFetch(innerTask.is_complete=false)">
+        
+    </p>
+        
 
 
-        {{ props.task.is_complete }}</p>
+        {{ props.task.is_complete }}
 
 
     <button @click="taskStore.deleteTask(task.id)"> Delete Task</button>
@@ -56,6 +61,12 @@ async function noTask (){
 
 
 <style scoped>
+
+h3,p{
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
 button{
     margin: 0 10px;
     margin-bottom: 10px;
@@ -66,8 +77,8 @@ button{
 .modify::after {
     content: ' First double click on title or description !!'; /* Texto de la leyenda */
     position: absolute;
-    bottom: 0%; /* Posiciona el tooltip arriba del botón */
-    left: 240%;
+    top:  180%; /* Posiciona el tooltip arriba del botón */
+    left: 50%;
     transform: translateX(-50%);
     background-color: black;
     color: white;
@@ -80,5 +91,20 @@ button{
 }
 .modify:hover::after {
     opacity: 1;
+}
+.icon_check{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+.icon_check2{
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+    margin-left: 30px;
+}
+.underlined {
+    text-decoration: line-through;
 }
 </style>
