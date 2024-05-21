@@ -13,17 +13,13 @@ const userStore = useUserStore();
 const taskStore = useTaskStore();
 const {tasks} = storeToRefs(taskStore);
 
-// function signOut(){
-//     userStore.signOut()
-//     router.push({ path: '/auth' });
-// }
+
 
 </script>
 
 <template>
     <NavBar></NavBar>
     <section>
-    <!-- <button @click="signOut">Sign Out</button> -->
    <AddTask></AddTask>
     <div v-if="!tasks">
         <p>No tasks availables</p>

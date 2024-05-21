@@ -32,7 +32,7 @@ function signUp(){
     <h2>Welcome to Task</h2>
 </div>
 <form @submit.prevent="signUp">
-        <h2>Registrarse</h2>
+        <h2>Register</h2>
         <fieldset>
             <legend>Basic Information</legend>
         <div class="form_input">

@@ -19,16 +19,7 @@ async function updateAndFetch(){
     isEditableTitle.value = false;
     isEditableDescription.value = false;
 }
-// async function doneTask (){
-//     await taskStore.updateTask(props.task.id, innerTask.value.title, innerTask.value.description, innerTask.value.is_complete)
-//     await taskStore.fetchTasks();
-//     innerTask.value.is_complete = true;
-// }
-// async function noTask (){
-//     await taskStore.updateTask(props.task.id, innerTask.value.title, innerTask.value.description, innerTask.value.is_complete)
-//     await taskStore.fetchTasks();
-//     innerTask.value.is_complete = false;
-// }
+
 </script>
 
 <template>
@@ -52,7 +43,7 @@ async function updateAndFetch(){
         
 
 
-        {{ props.task.is_complete }}
+        <!-- {{ props.task.is_complete }} -->
 
 
     <button @click="taskStore.deleteTask(task.id)"> Delete Task</button>
