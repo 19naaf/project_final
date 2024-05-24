@@ -1,35 +1,40 @@
-# project_final
+# Project Final IronHack FrontEnd
 
-This template should help get you started developing with Vue 3 in Vite.
+##   Link to the deployment URL and link to the presentation.
 
-## Recommended IDE Setup
+Netlify: https://final-project-nelson.netlify.app/
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Presentation: https://1drv.ms/b/s!Akt9M39mwIfGiSugV3o72tTOOwb8?e=wl2mrW
 
-## Customize configuration
+Repository GitHub: https://github.com/19naaf/project_final
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+##  Technologies used:
 
-```sh
-npm install
-```
+ - Vue 3.0
+ - Supabase
+ - HTML5
+ - CSS3
+ - JAVASCRIPT
+ - GITHUB
+ - VISUAL STUDIO CODE
+ - GIT
+ - NETLIFY
+ - Vue 3.0
+ - Supabase
+ 
+## Vue App Tasks
 
-### Compile and Hot-Reload for Development
+In this project, we were tasked with creating an app using JavaScript, HTML, and CSS, utilizing the Vue 3.0 framework. The project involved developing a task management application. The application needed to be capable of connecting to a database via Supabase (a platform providing Backend services), authenticating or registering a user, and offering the user the ability to add a new task, view previously added tasks(if any), edit tasks, delete tasks, or mark tasks as completed.
 
-```sh
-npm run dev
-```
+To achieve this, various tools commonly used in development with the Vue framework were applied. This included using individual components that could be utilized and called from different "views" of the page, often importing the required data through props, also utilized framework-specific elements such as reactive variables to enable dynamic usage of variables. Regarding the visual design, i wanted to for a minimalist style that is also functional and responsive.
 
-### Compile and Minify for Production
+## BackLog
 
-```sh
-npm run build
-```
+I would have liked to dedicate more time to the Bonus option at the page.
 
-### Lint with [ESLint](https://eslint.org/)
+## Credits
+This is a project carried out by me: https://github.com/19naaf  with the assistance and collaboration of:
 
-```sh
-npm run lint
-```
+ - Jarko
+ - Platform Iron Hack
